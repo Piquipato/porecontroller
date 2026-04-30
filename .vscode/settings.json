@@ -16,10 +16,12 @@
         },
         {
             "name": "copy-to-dist",
-            "command": "cmd",
+            "command": "powershell",
             "args": [
-                "/C",
-                "if not exist \"%DIR%\\dist\" mkdir \"%DIR%\\dist\" && copy /Y \"%OUTDIR%\\%DOCFILE%.pdf\" \"%DIR%\\dist\\\""
+                "-NoProfile",
+                "-NonInteractive",
+                "-Command",
+                "New-Item -ItemType Directory -Force -Path '%DIR%/dist' | Out-Null; Copy-Item '%OUTDIR%/%DOCFILE%.pdf' '%DIR%/dist/'"
             ]
         }
     ],
