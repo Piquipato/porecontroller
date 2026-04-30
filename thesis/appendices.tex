@@ -16,10 +16,13 @@
 \fi
 
 % Specific settings for the appendices chapter can be added here
+\chaptercounter{chapter}{1} % Reset chapter counter for appendices
+\renewcommand{\thechapter}{A.\arabic{chapter}} % Chapter numbering format for appendices
+\renewcommand{\thepage}{\thechapter.\arabic{page}} % Page numbering format for appendices
 
 \begin{document}
 
-
+\section{MyAppendix}\label{sec:appendix}
 
 \end{document}
 
