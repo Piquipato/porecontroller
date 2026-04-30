@@ -1,0 +1,33 @@
+{
+    "latex-workshop.latex.outDir": "%DIR%/latex_build",
+    
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "copy-to-dist",
+            "command": "cmd",
+            "args": [
+                "/C",
+                "if not exist \"%DIR%\\dist\" mkdir \"%DIR%\\dist\" && copy /Y \"%OUTDIR%\\%DOCFILE%.pdf\" \"%DIR%\\dist\\\""
+            ]
+        }
+    ],
+
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "latexmk + copy to dist",
+            "tools": ["latexmk", "copy-to-dist"]
+        }
+    ]
+}
